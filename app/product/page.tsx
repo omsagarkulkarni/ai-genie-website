@@ -1,59 +1,68 @@
+const steps = [
+  "Submit workload through API or dashboard.",
+  "AI Genie distributes compute tasks across available global nodes.",
+  "Results are returned quickly and at significantly lower cost."
+];
+
 export default function ProductPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 md:py-16 lg:py-20">
-      <div className="space-y-10">
-        <header className="space-y-3">
-          <h1 className="text-2xl font-semibold text-dark-gray md:text-3xl">
+    <div className="mx-auto max-w-5xl space-y-10 px-4 py-12 md:py-16 lg:py-20">
+      <section className="space-y-4">
+        <div className="space-y-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-dark-gray/60">
             Product
+          </p>
+          <h1 className="text-3xl font-semibold text-dark-gray md:text-4xl">
+            Distributed compute for modern AI workloads
           </h1>
-          <p className="text-sm text-dark-gray/70 md:text-base">
-            AI Genie makes idle compute resources actionable for every startup
-            without the overhead of hyperscaler lock-in. The platform orchestrates
-            secure task routing, workload verification, and resiliency monitoring
-            for both training and inference.
-          </p>
-        </header>
+        </div>
+        <p className="text-sm text-dark-gray/80 md:text-base">
+          AI Genie is a decentralized cloud compute platform designed to lower
+          the cost of running AI workloads by using unused compute resources
+          from PCs and servers around the world. Instead of relying entirely on
+          traditional cloud providers, AI Genie distributes AI tasks across a
+          global network of idle hardware. This allows users to access compute
+          at significantly lower cost while still running demanding AI or
+          machine learning jobs.
+        </p>
+      </section>
 
-        <section className="space-y-4 rounded-soft-xl bg-white p-6 shadow-sm md:p-8">
-          <h2 className="text-lg font-semibold text-dark-gray md:text-xl">
-            Product Overview
-          </h2>
-          <p className="text-sm text-dark-gray/80 md:text-base">
-            AI Genie connects idle PCs and servers worldwide, creating a
-            decentralized compute fabric that is accessed through a single API
-            or dashboard. Users submit workloads, define priorities, and monitor
-            progress while the platform automatically routes tasks to verified
-            nodes that match performance and compliance needs.
-          </p>
-        </section>
+      <section
+        id="how-it-works"
+        className="space-y-6 rounded-soft-xl bg-white p-6 shadow-sm md:p-8"
+      >
+        <h2 className="text-xl font-semibold text-dark-gray md:text-2xl">
+          How It Works
+        </h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          {steps.map((step, index) => (
+            <div
+              key={step}
+              className="flex flex-col gap-3 rounded-soft-xl bg-light-gray px-4 py-5 shadow-sm"
+            >
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
+                {index + 1}
+              </div>
+              <p className="text-sm text-dark-gray/80">{step}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <section className="space-y-4 rounded-soft-xl bg-white p-6 shadow-sm md:p-8">
-          <h2 className="text-lg font-semibold text-dark-gray md:text-xl">
-            How Workloads Run
-          </h2>
-          <p className="text-sm text-dark-gray/80 md:text-base">
-            Workloads enter AI Genie in small tasks that the platform divides,
-            schedules, and tracks. Compute nodes are choreographed globally to
-            tackle each slice, returning encrypted results and health metrics.
-            This layered orchestration keeps execution secure and verifiable
-            while giving users transparency into each stage.
-          </p>
-        </section>
-
-        <section className="space-y-4 rounded-soft-xl bg-white p-6 shadow-sm md:p-8">
-          <h2 className="text-lg font-semibold text-dark-gray md:text-xl">
-            Decentralized + Cloud Compute
-          </h2>
-          <p className="text-sm text-dark-gray/80 md:text-base">
-            AI Genie blends decentralized and traditional cloud compute by routing
-            every job to the best available resource. Decentralized, idle nodes
-            absorb bursty or experimental workloads, while familiar cloud stacks
-            remain on standby for sensitive or large-scale jobs. This hybrid
-            approach unlocks more compute without forcing teams to abandon their
-            existing infrastructure.
-          </p>
-        </section>
-      </div>
+      <section className="space-y-4 rounded-soft-xl bg-white p-6 shadow-sm md:p-8">
+        <h2 className="text-xl font-semibold text-dark-gray md:text-2xl">
+          Technology
+        </h2>
+        <p className="text-sm text-dark-gray/80 md:text-base">
+          Workloads are submitted through an interface that enables AI Genie to
+          divide and assign tasks to available compute nodes. Each node processes
+          a portion of the workload and returns the results to the platform,
+          improving efficiency and reducing the overall expense for startups and
+          technical teams. By using spare compute capacity, AI Genie offers a
+          scalable and cost-effective alternative to traditional cloud
+          infrastructure.
+        </p>
+      </section>
     </div>
   );
 }
