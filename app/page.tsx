@@ -21,20 +21,18 @@ const platformPillars = [
 
 const humanStories = [
   {
-    name: "Ravi & team",
-    role: "Applied AI on the edge",
+    name: "Founder & Core Team",
+    role: "Visionaries behind AI Genie",
     quote:
-      "We shifted inference to AI Genie’s fabric and cut cost volatility by 62% while keeping latency < 150ms.",
-    image:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80"
+      "Krishna and Om’s leadership keeps AI Genie laser-focused on accessible compute—every pilot has run in under 48 hours.",
+    image: "/images/krishna.jpg"
   },
   {
-    name: "Sofia & Crew",
-    role: "Industrial robotics lab",
+    name: "Operational Partners",
+    role: "Financial & strategy operators",
     quote:
-      "Consistent GPU access let us train new control models every night without paying for unused nodes.",
-    image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80"
+      "Om’s business discipline and Krishna’s technical rigor make every launch predictable and secure.",
+    image: "/images/om.png"
   }
 ];
 
@@ -80,7 +78,7 @@ export default function HomePage() {
   return (
     <div className="space-y-12">
       <Section id="hero">
-        <div className="relative overflow-hidden rounded-[48px] border border-white/50 bg-gradient-to-br from-white via-[#e4f0ff] to-[#a2dbed]/30 p-10 text-center shadow-[0_40px_100px_rgba(9,17,41,0.25)]">
+        <div className="relative overflow-hidden rounded-[48px] border border-white/50 bg-gradient-to-br from-white via-[#e4f0ff] to-[#a2dbed]/30 p-10 text-center shadow-[0_40px_100px_rgba(9,17,41,0.25)] hero-glow">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(130,195,255,0.35),_transparent_55%)]" />
           <div className="relative space-y-10">
             <div className="space-y-4">
@@ -166,24 +164,24 @@ export default function HomePage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {humanStories.map((story) => (
-              <div
-                key={story.name}
-                className="flex flex-col gap-4 rounded-[32px] border border-dark-gray/10 bg-white p-6 shadow-[0_25px_45px_rgba(9,17,41,0.1)]"
-              >
-                <div className="relative h-48 w-full overflow-hidden rounded-[28px]">
-                  <Image
-                    src={story.image}
-                    alt={story.name}
-                    fill
-                    className="object-cover grayscale transition duration-500 hover:grayscale-0"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <p className="text-sm text-dark-gray/70">{story.role}</p>
-                  <p className="text-lg font-semibold text-dark-gray">{story.name}</p>
-                  <p className="text-sm text-dark-gray/80">{story.quote}</p>
-                </div>
+            <div
+              key={story.name}
+              className="flex flex-col gap-4 rounded-[32px] border border-dark-gray/10 bg-white p-6 shadow-[0_25px_45px_rgba(9,17,41,0.1)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_35px_55px_rgba(9,17,41,0.15)]"
+            >
+              <div className="relative h-48 w-full overflow-hidden rounded-[28px] bg-dark-gray/5">
+                <Image
+                  src={story.image}
+                  alt={story.name}
+                  fill
+                  className="object-cover transition duration-700 ease-in-out hover:scale-105"
+                />
               </div>
+              <div className="space-y-1">
+                <p className="text-sm text-dark-gray/60">{story.role}</p>
+                <p className="text-lg font-semibold text-dark-gray">{story.name}</p>
+                <p className="text-sm text-dark-gray/80">{story.quote}</p>
+              </div>
+            </div>
             ))}
           </div>
         </div>
@@ -206,7 +204,7 @@ export default function HomePage() {
             {metrics.map(({ value, copy }, index) => (
               <div
                 key={value}
-                className="flex flex-col gap-2 rounded-soft-xl bg-white p-6 text-sm text-dark-gray/80 shadow-[0_25px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_35px_70px_rgba(0,0,0,0.12)] animate-float-in"
+              className="flex flex-col gap-2 rounded-soft-xl bg-white p-6 text-sm text-dark-gray/80 shadow-[0_25px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_35px_70px_rgba(0,0,0,0.12)] animate-float-in animate-smooth-fade"
                 style={{ animationDelay: `${index * 0.08}s` }}
               >
                 <span className="inline-flex h-1.5 w-12 rounded-full bg-[#a2dbed]" />
