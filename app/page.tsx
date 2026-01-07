@@ -126,7 +126,7 @@ export default function HomePage() {
             {metrics.map(({ value, copy }, index) => (
               <div
                 key={value}
-                className="flex flex-col gap-2 rounded-soft-xl bg-white p-6 text-sm text-dark-gray/80 shadow-[0_25px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_35px_70px_rgba(0,0,0,0.12)] animate-slide"
+                className="flex flex-col gap-2 rounded-soft-xl bg-white p-6 text-sm text-dark-gray/80 shadow-[0_25px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_35px_70px_rgba(0,0,0,0.12)] animate-float-in"
                 style={{ animationDelay: `${index * 0.08}s` }}
               >
                 <span className="inline-flex h-1.5 w-12 rounded-full bg-[#a2dbed]" />

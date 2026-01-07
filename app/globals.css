@@ -31,6 +31,22 @@ body {
   transform: translateY(16px);
 }
 
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-float-in {
+  animation: float-in 0.8s ease forwards;
+  opacity: 0;
+}
+
 @keyframes slide-up {
   to {
     opacity: 1;
