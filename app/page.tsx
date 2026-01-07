@@ -27,15 +27,17 @@ const metrics = [
 
 function Section({
   id,
+  className = "",
   children
 }: {
   id?: string;
+  className?: string;
   children: React.ReactNode;
 }) {
   return (
     <section
       id={id}
-      className="mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20"
+      className={`mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20 ${className}`}
     >
       {children}
     </section>
@@ -45,42 +47,48 @@ function Section({
 export default function HomePage() {
   return (
     <div className="space-y-4 md:space-y-5 lg:space-y-8">
-      <Section id="hero">
-        <div className="flex flex-col items-center text-center">
-          <h1 className="max-w-3xl text-3xl font-semibold tracking-tight text-dark-gray md:text-4xl lg:text-5xl">
+      <Section
+        id="hero"
+        className="px-6 md:px-0"
+      >
+        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white to-[#a2dbed]/20 py-16 px-8 text-center shadow-[0_30px_90px_rgba(0,0,0,0.15)]">
+          <div className="absolute inset-y-0 left-8 hidden w-32 rounded-full bg-[#a2dbed]/30 blur-[80px] sm:block" />
+          <h1 className="relative z-10 text-3xl font-semibold tracking-tight text-dark-gray md:text-4xl lg:text-5xl">
             Run AI workloads on a global network of idle compute resources at lower cost.
           </h1>
-          <p className="mt-4 max-w-3xl text-sm text-dark-gray/70 md:text-base">
+          <p className="relative z-10 mt-6 max-w-3xl text-sm text-dark-gray/70 md:text-base">
             AI Genie is a decentralized compute platform built for technical teams
             and startups seeking predictable multi-cloud performance without the
             premium price.
           </p>
-          <div className="mt-8 flex flex-col gap-3 md:flex-row md:gap-4">
+          <div className="relative z-10 mt-10 flex flex-col items-center justify-center gap-3 md:flex-row md:justify-center">
             <Link
               href="/contact"
-              className="rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-primary/90"
+              className="rounded-full bg-dark-gray px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition hover:bg-black"
             >
               Sign Up
             </Link>
             <Link
               href="/product#how-it-works"
-              className="rounded-full border border-dark-gray/15 bg-white/70 px-6 py-2.5 text-sm font-medium text-dark-gray shadow-sm transition hover:border-dark-gray/30 hover:bg-white"
+              className="rounded-full border border-dark-gray/30 bg-white px-8 py-3 text-sm font-semibold uppercase tracking-wide text-dark-gray shadow transition hover:border-black hover:text-black"
             >
               See Product
             </Link>
           </div>
+          <div className="absolute right-6 top-6 h-24 w-24 rounded-full bg-black/10 blur-3xl animate-floating" />
         </div>
       </Section>
 
       <Section>
         <div className="space-y-6">
           <div className="grid gap-4 md:grid-cols-3">
-            {challenges.map((text) => (
+            {challenges.map((text, index) => (
               <div
                 key={text}
-                className="flex flex-col gap-3 rounded-soft-xl bg-white p-5 shadow-sm"
+                className="flex flex-col gap-3 rounded-soft-xl bg-white p-5 shadow-[0_20px_45px_rgba(0,0,0,0.08)] transition duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] animate-slide"
+                style={{ animationDelay: `${index * 0.08}s` }}
               >
-                <div className="text-xs font-semibold uppercase tracking-wide text-primary">
+                <div className="text-xs font-semibold uppercase tracking-wide text-[#a2dbed]">
                   Challenge
                 </div>
                 <p className="text-sm text-dark-gray/80">{text}</p>
@@ -105,21 +113,23 @@ export default function HomePage() {
           <p className="text-sm text-dark-gray/80 md:text-base">
             Placeholder for upcoming AI Genie product demonstration.
           </p>
-          <div className="mt-4 aspect-video w-full rounded-soft-xl bg-dark-gray/5 ring-1 ring-dark-gray/10" />
+          <div className="mt-4 aspect-video w-full rounded-[36px] bg-gradient-to-br from-[#a2dbed]/25 via-white to-white shadow-[0_25px_60px_rgba(0,0,0,0.12)] ring-1 ring-dark-gray/20" />
         </div>
       </Section>
 
-      <Section id="metrics">
+      <Section id="metrics" className="bg-white/80">
         <div className="space-y-6">
           <h2 className="text-xl font-semibold text-dark-gray md:text-2xl">
             Impact Metrics
           </h2>
           <div className="grid gap-4 md:grid-cols-4">
-            {metrics.map(({ value, copy }) => (
+            {metrics.map(({ value, copy }, index) => (
               <div
                 key={value}
-                className="flex flex-col gap-2 rounded-soft-xl bg-white p-5 text-sm text-dark-gray/80 shadow-sm"
+                className="flex flex-col gap-2 rounded-soft-xl bg-white p-6 text-sm text-dark-gray/80 shadow-[0_25px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_35px_70px_rgba(0,0,0,0.12)] animate-slide"
+                style={{ animationDelay: `${index * 0.08}s` }}
               >
+                <span className="inline-flex h-1.5 w-12 rounded-full bg-[#a2dbed]" />
                 <div className="text-2xl font-semibold text-dark-gray">{value}</div>
                 <p className="text-xs font-medium uppercase tracking-wide text-dark-gray/60">
                   Outcome
