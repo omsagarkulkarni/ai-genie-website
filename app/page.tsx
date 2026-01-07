@@ -1,9 +1,41 @@
+import Image from "next/image";
 import Link from "next/link";
 
-const challenges = [
-  "Cloud compute costs continue to rise.",
-  "Startups waste a significant portion of compute spend.",
-  "AI workloads require expensive GPU resources that are hard to access."
+const platformPillars = [
+  {
+    title: "Secured global compute fabric",
+    detail:
+      "Elastic mesh spanning idle PCs and servers, routed with verification-first security policies."
+  },
+  {
+    title: "Predictable cost controls",
+    detail:
+      "Unified dashboard surfaces spend, minimums, and usage tiers so startups plan with clarity."
+  },
+  {
+    title: "Built for AI workflows",
+    detail:
+      "Hybrid training and inference orchestration keeps GPUs humming while offloading cold runs."
+  }
+];
+
+const humanStories = [
+  {
+    name: "Ravi & team",
+    role: "Applied AI on the edge",
+    quote:
+      "We shifted inference to AI Genie’s fabric and cut cost volatility by 62% while keeping latency < 150ms.",
+    image:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Sofia & Crew",
+    role: "Industrial robotics lab",
+    quote:
+      "Consistent GPU access let us train new control models every night without paying for unused nodes.",
+    image:
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80"
+  }
 ];
 
 const metrics = [
@@ -46,70 +78,120 @@ function Section({
 
 export default function HomePage() {
   return (
-    <div className="space-y-4 md:space-y-5 lg:space-y-8">
-      <Section
-        id="hero"
-        className="px-6 md:px-0"
-      >
-        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white to-[#a2dbed]/20 py-16 px-8 text-center shadow-[0_30px_90px_rgba(0,0,0,0.15)]">
-          <div className="absolute inset-y-0 left-8 hidden w-32 rounded-full bg-[#a2dbed]/30 blur-[80px] sm:block" />
-          <h1 className="relative z-10 text-3xl font-semibold tracking-tight text-dark-gray md:text-4xl lg:text-5xl">
-            Run AI workloads on a global network of idle compute resources at lower cost.
-          </h1>
-          <p className="relative z-10 mt-6 max-w-3xl text-sm text-dark-gray/70 md:text-base">
-            AI Genie is a decentralized compute platform built for technical teams
-            and startups seeking predictable multi-cloud performance without the
-            premium price.
-          </p>
-          <div className="relative z-10 mt-10 flex flex-col items-center justify-center gap-3 md:flex-row md:justify-center">
-            <Link
-              href="/contact"
-              className="rounded-full bg-dark-gray px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition hover:bg-black"
-            >
-              Sign Up
-            </Link>
-            <Link
-              href="/product#how-it-works"
-              className="rounded-full border border-dark-gray/30 bg-white px-8 py-3 text-sm font-semibold uppercase tracking-wide text-dark-gray shadow transition hover:border-black hover:text-black"
-            >
-              See Product
-            </Link>
+    <div className="space-y-12">
+      <Section id="hero">
+        <div className="relative overflow-hidden rounded-[48px] border border-white/50 bg-gradient-to-br from-white via-[#e4f0ff] to-[#a2dbed]/30 p-10 text-center shadow-[0_40px_100px_rgba(9,17,41,0.25)]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(130,195,255,0.35),_transparent_55%)]" />
+          <div className="relative space-y-10">
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.4em] text-dark-gray/60">
+                Decentralized compute
+              </p>
+              <h1 className="text-4xl font-semibold tracking-tight text-dark-gray md:text-5xl">
+                Run AI workloads on a global network of idle compute resources at lower cost.
+              </h1>
+              <p className="mx-auto max-w-3xl text-sm text-dark-gray/70 md:text-base">
+                AI Genie unifies unused PCs and servers into a secure, verified fabric so startups and technical
+                teams can shift expensive workloads off hyperscale providers.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/contact"
+                className="rounded-full bg-dark-gray px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition hover:bg-black"
+              >
+                Sign Up
+              </Link>
+              <Link
+                href="/product#how-it-works"
+                className="rounded-full border border-dark-gray/30 px-8 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-dark-gray transition hover:border-black hover:text-black"
+              >
+                See Product
+              </Link>
+            </div>
+
+            <div className="relative mx-auto flex w-full max-w-5xl items-center justify-between gap-4 rounded-3xl border border-white/70 bg-white/80 p-5 shadow-[0_25px_45px_rgba(0,0,0,0.08)]">
+              <div>
+                <p className="text-xs uppercase tracking-[0.4em] text-dark-gray/60">Usage footprint</p>
+                <p className="text-xl font-semibold text-dark-gray">Hybrid, multi-region</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.4em] text-dark-gray/60">Average latency</p>
+                <p className="text-xl font-semibold text-dark-gray">≤ 150ms</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.4em] text-dark-gray/60">Cost signal</p>
+                <p className="text-xl font-semibold text-dark-gray">$0.03 – $0.07/vCPU</p>
+              </div>
+            </div>
           </div>
-          <div className="absolute right-6 top-6 h-24 w-24 rounded-full bg-black/10 blur-3xl animate-floating" />
+        </div>
+      </Section>
+
+      <Section className="bg-gradient-to-tr from-[#10203b] to-[#1b4177] text-white">
+        <div className="space-y-10">
+          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.4em] text-white/70">Platform pillars</p>
+              <h2 className="text-2xl font-semibold md:text-3xl">A platform built like enterprise security</h2>
+            </div>
+            <div className="text-xs uppercase tracking-[0.4em] text-white/40">
+              Inspired by the clarity of proven cloud control planes
+            </div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {platformPillars.map((pillar, index) => (
+              <div
+                key={pillar.title}
+                className="space-y-3 rounded-[32px] border border-white/20 bg-white/5 p-6 shadow-[0_25px_55px_rgba(0,0,0,0.2)] backdrop-blur-lg"
+              >
+                <div className="text-xs font-semibold uppercase tracking-[0.4em] text-[#a2dbed]">
+                  Pillar {index + 1}
+                </div>
+                <p className="text-lg font-semibold">{pillar.title}</p>
+                <p className="text-sm text-white/70">{pillar.detail}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
       <Section>
-        <div className="space-y-6">
-          <div className="grid gap-4 md:grid-cols-3">
-            {challenges.map((text, index) => (
+        <div className="space-y-8">
+          <div className="flex flex-col gap-2">
+            <p className="text-xs uppercase tracking-[0.4em] text-dark-gray/60">Human-centric proof</p>
+            <h2 className="text-2xl font-semibold text-dark-gray md:text-3xl">People building with AI Genie</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {humanStories.map((story) => (
               <div
-                key={text}
-                className="flex flex-col gap-3 rounded-soft-xl bg-white p-5 shadow-[0_20px_45px_rgba(0,0,0,0.08)] transition duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] animate-slide"
-                style={{ animationDelay: `${index * 0.08}s` }}
+                key={story.name}
+                className="flex flex-col gap-4 rounded-[32px] border border-dark-gray/10 bg-white p-6 shadow-[0_25px_45px_rgba(9,17,41,0.1)]"
               >
-                <div className="text-xs font-semibold uppercase tracking-wide text-[#a2dbed]">
-                  Challenge
+                <div className="relative h-48 w-full overflow-hidden rounded-[28px]">
+                  <Image
+                    src={story.image}
+                    alt={story.name}
+                    fill
+                    className="object-cover grayscale transition duration-500 hover:grayscale-0"
+                  />
                 </div>
-                <p className="text-sm text-dark-gray/80">{text}</p>
+                <div className="space-y-1">
+                  <p className="text-sm text-dark-gray/70">{story.role}</p>
+                  <p className="text-lg font-semibold text-dark-gray">{story.name}</p>
+                  <p className="text-sm text-dark-gray/80">{story.quote}</p>
+                </div>
               </div>
             ))}
           </div>
-          <p className="max-w-4xl text-sm text-dark-gray/80 md:text-base">
-            AI Genie leverages decentralized, unused global compute resources to
-            provide fast, secure, and low-cost AI workload execution. By
-            distributing workloads across a network of idle hardware, users gain
-            access to scalable and reliable compute capacity at significantly
-            lower cost than traditional cloud infrastructure.
-          </p>
         </div>
       </Section>
 
       <Section id="demo">
         <div className="space-y-6">
-          <h2 className="text-xl font-semibold text-dark-gray md:text-2xl">
-            Product Demo
-          </h2>
+          <h2 className="text-xl font-semibold text-dark-gray md:text-2xl">Product Demo</h2>
           <p className="text-sm text-dark-gray/80 md:text-base">
             Placeholder for upcoming AI Genie product demonstration.
           </p>
@@ -119,9 +201,7 @@ export default function HomePage() {
 
       <Section id="metrics" className="bg-white/80">
         <div className="space-y-6">
-          <h2 className="text-xl font-semibold text-dark-gray md:text-2xl">
-            Impact Metrics
-          </h2>
+          <h2 className="text-xl font-semibold text-dark-gray md:text-2xl">Impact Metrics</h2>
           <div className="grid gap-4 md:grid-cols-4">
             {metrics.map(({ value, copy }, index) => (
               <div
@@ -131,9 +211,7 @@ export default function HomePage() {
               >
                 <span className="inline-flex h-1.5 w-12 rounded-full bg-[#a2dbed]" />
                 <div className="text-2xl font-semibold text-dark-gray">{value}</div>
-                <p className="text-xs font-medium uppercase tracking-wide text-dark-gray/60">
-                  Outcome
-                </p>
+                <p className="text-xs font-medium uppercase tracking-wide text-dark-gray/60">Outcome</p>
                 <p className="text-sm text-dark-gray/80">{copy}</p>
               </div>
             ))}
@@ -144,9 +222,7 @@ export default function HomePage() {
       <Section id="early-access">
         <div className="space-y-6 rounded-soft-xl bg-white p-6 shadow-sm md:p-8">
           <div className="space-y-2">
-            <h2 className="text-xl font-semibold text-dark-gray md:text-2xl">
-              Join Early Access
-            </h2>
+            <h2 className="text-xl font-semibold text-dark-gray md:text-2xl">Join Early Access</h2>
             <p className="text-sm text-dark-gray/80 md:text-base">
               Apply for early access to the AI Genie platform.
             </p>
@@ -167,9 +243,7 @@ export default function HomePage() {
               Sign Up
             </button>
           </form>
-          <p className="text-xs text-dark-gray/50">
-            Placeholder only (no backend).
-          </p>
+          <p className="text-xs text-dark-gray/50">Placeholder only (no backend).</p>
         </div>
       </Section>
     </div>
